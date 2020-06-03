@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.excercise27mvchelloworls.model.UserBean;
 
 
 @WebServlet("/UsuariosServlet")
@@ -25,7 +26,7 @@ public class UsuariosServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Hello World");
+	
 		
 		String sid="";
 		int iid=0;
@@ -39,17 +40,17 @@ public class UsuariosServlet extends HttpServlet {
 		sage = request.getParameter("txtAge");
 		shage = Short.parseShort(sage);
 		
-		userBean
+		UserBean myUser1 = new UserBean(iid, sname, shage);
+		UserBean myUser2 = new UserBean();
+		myUser2.setId(iid);
+		myUser2.setName(sname);
+		myUser2.setAge(shage);
 		
-	/*	response.getWriter().append("The id input is:"+sid);
-		response.getWriter().append("The name input is:"+sname);
-		response.getWriter().append("The age input is:"+sage);*/
-	
-	/*
-	UserModel Juanito;
-	Juanito = new UserModel();
-	Juanito.setEdad(10);
-		*/
+		response.getWriter().append("The id input myUser1 is:"+myUser1.getId());
+		response.getWriter().append("The name input myUser1 is:"+myUser1.getName());
+		response.getWriter().append("The age input myUser1 is:"+myUser1.getAge());
+		
+
 	}
 
 }
